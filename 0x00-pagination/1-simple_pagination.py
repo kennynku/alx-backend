@@ -1,13 +1,12 @@
 #!/usr/bin/env python3
-""" Return tuple"""
-
+""" Pagination """
 import csv
 import math
-from typing import List
+from typing import List, Tuple
 
 
 class Server:
-    """paginate a database of popular baby names.
+    """Server class to paginate a database of popular baby names.
     """
     DATA_FILE = "Popular_Baby_Names.csv"
 
@@ -26,21 +25,19 @@ class Server:
         return self.__dataset
 
     def get_page(self, page: int = 1, page_size: int = 10) -> List[List]:
-        """Simple pagination"""
-        assert type(page) is int and page > 0
-        assert type(page_size) is int and page_size > 0
-        idx = index_range(page, page_size)
-        try:
-            return self.dataset()[idx[0]:idx[1]]
-        except IndexError:
-            return []
+        """
+        Return list of baby names or assert error
+        """
+        assert(isinstance(page, int) and isinstance(page_size, int))
+        assert(page > 0 and page_size > 0)
+        [start, end] = index_range(page, page_size)
+        return self.dataset()[start: end]
 
 
-def index_range(page: int, page_size: int) -> tuple:
-    """ Provide a tuple with two elements,
- representing the starting and ending indices
- that correspond to the range of indexes to be 
-retrieved from a list based on specific pagination parameters """
-
-    myTuple = ((page - 1) * page_size, page * page_size)
-    return (myTuple)
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """
+    Return a tuple of size two containing a start index and an end
+    index corresponding to the range of indexes to return in a list
+    for those particular pagination parameters.
+    """
+    return ((page - 1) * page_size, page * page_size)

@@ -1,11 +1,15 @@
 #!/usr/bin/env python3
-""" Return tuple"""
+""" return tuple """
+
+from typing import Tuple
 
 
-def index_range(page: int, page_size: int) -> tuple:
-    """Provide a tuple with two elements, 
-representing the starting and ending indices 
-that correspond to the range of indexes to be
- retrieved from a list based on specific pagination parameters """
-    myTuple = ((page - 1) * page_size, page * page_size)
-    return (myTuple)
+def index_range(page: int, page_size: int) -> Tuple[int, int]:
+    """
+    Return a tuple of size two containing a start index and an end
+    index corresponding to the range of indexes to return in a list
+    for those particular pagination parameters.
+    """
+    return ((page - 1) * page_size, page * page_size)
+
+
