@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-python module to commence a flask application using Babel
+python mod to commence a flask application using Babel
 """
 from datetime import timezone
 from flask import Flask, render_template, request, g
