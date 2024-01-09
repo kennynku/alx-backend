@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-flask application setup
+Flask application setup
 """
 from flask import Flask, render_template
 
