@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-python module to commence a flask application using Babel
+python mod to commence a flask application using Babel
 """
 from flask import Flask, render_template, request
 from flask_babel import Babel
